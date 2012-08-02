@@ -9,7 +9,24 @@
 #import <Cocoa/Cocoa.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
+{
+    // the menu which will be attached to the system status bar
+    IBOutlet NSMenu *menu;
+    
+    IBOutlet NSMenuItem *quit;
+    IBOutlet NSMenuItem *externalIPAddress;
+    
+    // the system status bar which the system provides to us
+	NSStatusItem *statusItem;
+    
+    //timer dedicated to refresh ext. ip address every 1000s
+    NSTimer *updateTimer;
+    
+    NSImage *menuIcon;
+}
 
-@property (assign) IBOutlet NSWindow *window;
+-(IBAction)updateIPAddress:(id)sender;
+
+-(IBAction)exitApplication:(id)sender;
 
 @end
